@@ -5,5 +5,5 @@
  * @author limey
  *
  */
-module JAVA_Texi_Sharing {
+module IPP_Texi_Sharing_Project {
 }
