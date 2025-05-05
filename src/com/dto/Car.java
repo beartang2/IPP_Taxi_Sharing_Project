@@ -6,6 +6,7 @@ public class Car {
 	private int seats;
 	private int capacity;
 	
+	//생성자
 	public Car(int carNumber, int seats, int capacity) {
 		this.carNumber=carNumber;
 		this.seats=seats;
