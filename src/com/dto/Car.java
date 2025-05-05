@@ -1,4 +1,4 @@
-package Car;
+package com.dto;
 
 public class Car {
 
