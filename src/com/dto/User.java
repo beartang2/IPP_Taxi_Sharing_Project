@@ -1,52 +1,93 @@
 package com.dto;
 
-public class User {
-    private int userId;
-    private String username;
+import java.io.Serializable;
+
+public class User implements Serializable{
+	private static final long serialVersionUID=-4274700572038677000L;	//전송에 편리함
+	private int uniqueId; // INT로 변경
+    private String userId;
     private String password;
     private String name;
+    private String sex;
     private String phone;
-    private boolean hasLuggage;
+    private String birth;
 
+    public User() { //기본 생성자(꼬이는 거 방지)
+    	super();
+    }
     // 생성자
-    public User(int userId, String username, String password, String name, String phone,
-                boolean hasLuggage) {
+    public User(String userId, String password, String name
+    		, String sex, String phone, String birth) {
         this.userId = userId;
-        this.username = username;
         this.password = password;
         this.name = name;
+        this.sex=sex;
         this.phone = phone;
-        this.hasLuggage = hasLuggage;
+        this.birth=birth;
     }
 
     // 자동 생성 가능
+    public int getUniqueId() {
+        return uniqueId;
+    }
 
-    public int getUserId() {
+    public void setUniqueId(int uniqueId) {
+        this.uniqueId = uniqueId;
+    }
+
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
-
-    public String getUsername() {
-        return username;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPassword(String password) {
+        this.password=password;
+    }
+    public String getName() {
+        return name;
     }
 
-   
+    public void setName(String name) {
+        this.name=name;
+    }
+    public String getSex() {
+        return sex;
+    }
 
-    @Override //db에 넣기 쉬움
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone=phone;
+    }
+    
+    public String getBirth() {
+    	return birth;
+    }
+    public void setBirth(String birth){
+    	this.birth = birth;
+    }
+    
+    @Override // db에 넣기 쉬움
     public String toString() {
         return "User{" +
-                "userId=" + userId +
-                ", username='" + username + '\'' +
+        		"uniqueId='" + uniqueId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
                 ", phone='" + phone + '\'' +
-                ", hasLuggage=" + hasLuggage +
+                 ", birth=" + birth +
                 '}';
     }
 }
