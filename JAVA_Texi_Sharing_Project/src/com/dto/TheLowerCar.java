@@ -19,5 +19,4 @@ public class TheLowerCar extends Car {
         this.UpperSpace = UpperSpace;
     }
     
-    
 }
