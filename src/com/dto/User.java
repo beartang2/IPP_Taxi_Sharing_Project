@@ -78,16 +78,16 @@ public class User implements Serializable{
     	this.birth = birth;
     }
     
-    @Override // db에 넣기 쉬움
+    @Override // 출력 용이
     public String toString() {
-        return "User{" +
-        		"uniqueId='" + uniqueId + '\'' +
-                ", userId='" + userId + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
-                ", phone='" + phone + '\'' +
-                 ", birth=" + birth +
+        return "User{" + "," + 
+        		"uniqueId='" + uniqueId + '\'' + //기본값 임의로 설정하기 ex) user1.setUniqueId(1);
+                ",userId='" + userId + '\'' +
+                ",password='" + password + '\'' +
+                ",name='" + name + '\'' +
+                ",sex='" + sex + '\'' +
+                ",phone='" + phone + '\'' +
+                 ",birth=" + birth +
                 '}';
     }
 }
