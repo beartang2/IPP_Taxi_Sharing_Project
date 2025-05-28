@@ -17,6 +17,5 @@ public class TheLowerCar extends Car {
 
     public void setUpperSpace(boolean UpperSpace) {
         this.UpperSpace = UpperSpace;
-    }
-    
+    }  
 }

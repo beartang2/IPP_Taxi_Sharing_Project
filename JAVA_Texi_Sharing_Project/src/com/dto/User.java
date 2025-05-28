@@ -11,22 +11,24 @@ public class User implements Serializable{
     private String sex;
     private String phone;
     private String birth;
+    private Integer age; // int는 기본형이라 null을 가질 수 없음 → Wrapper 클래스인 Integer는 가능.
 
     public User() { //기본 생성자(꼬이는 거 방지)
     	super();
     }
     // 생성자
     public User(String userId, String password, String name
-    		, String sex, String phone, String birth) {
+    		, String sex, String phone, String birth, Integer age) {
         this.userId = userId;
         this.password = password;
         this.name = name;
         this.sex=sex;
         this.phone = phone;
         this.birth=birth;
+        this.age = age;
     }
 
-    // 자동 생성 가능
+    // 자동 생성 가능 getter, setter
     public int getUniqueId() {
         return uniqueId;
     }
@@ -78,6 +80,14 @@ public class User implements Serializable{
     	this.birth = birth;
     }
     
+    public Integer getAge() {
+        return age;
+    }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    
     @Override // 출력 용이
     public String toString() {
         return "User{" + "," + 
@@ -87,7 +97,8 @@ public class User implements Serializable{
                 ",name='" + name + '\'' +
                 ",sex='" + sex + '\'' +
                 ",phone='" + phone + '\'' +
-                 ",birth=" + birth +
+                 ",birth=" + birth + '\'' +
+                  ", age=" + age +
                 '}';
     }
 }

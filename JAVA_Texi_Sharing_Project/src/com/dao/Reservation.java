@@ -2,7 +2,7 @@ package com.dao;
 
 import java.io.Serializable;
 
-public class Reservation implements Serializable {
+public class Reservation implements Serializable {	//dto로 만들어야돼서 dto안에 다시 만듦.
     private static final long serialVersionUID = 1L;
 
     private int reservationId;       // 예약 고유 ID
