@@ -9,6 +9,7 @@ CREATE TABLE user (
     sex VARCHAR(5) NOT NULL,
     phone VARCHAR(20) NOT NULL,
     birth VARCHAR(10) NOT NULL
+    age INT NOT NULL
 );
 INSERT INTO user (userId, password, name, sex, phone, birth, age)
 VALUES ('qwer12', 'qqwweerr', '신짱구', '남', '010-1111-2222', '2020-01-01', 6);
