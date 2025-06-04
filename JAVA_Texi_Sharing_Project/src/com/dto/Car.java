@@ -1,10 +1,13 @@
 package com.dto;
 
-public class Car {
+public abstract class Car {
 	
 	private String carNumber;
 	private int seats;
 	private int capacity;
+	
+	
+	
 	
 	//생성자
 	public Car(String carNumber, int seats, int capacity) {
