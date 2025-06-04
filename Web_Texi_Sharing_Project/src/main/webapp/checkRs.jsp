@@ -7,18 +7,12 @@
 <script type = "text/javascript">
 
 	//짐 공간 확인하는 유효성 검사
-	function updateToRs(){
-	    var form = document.updateRs;
-	    
-	    // 현재 짐 == 최대 짐 && 짐 유무 == "True" 조건 검사
-	    if(form.currentLuggage.value == form.maxLuggage.value && form.hasLuggage.value == "True") {
-	        alert("짐 공간이 부족합니다!");
-	    } else {
-	        if(confirm("최종 예약하시겠습니까?")){
-	            document.updateRs.submit();
-	        }
-	    }
+	function deleteToRs(){
+		if(confirm("정말 취소하시겠습니까?")){
+			document.deleteRs.submit();
+		}
 	}
+	
 </script>
 </head>
 <body>
@@ -46,6 +40,7 @@
 	
 	<div class = "row align-items-md-stretch">
 		<% //파라매터들 가져와서 변수로 저장 (보여주기용이니까 타입변환은 굳이)
+			String checkLuggage= request.getParameter("checkLuggage");
 			String resId = request.getParameter("resId");
 			String departure = request.getParameter("departure");
 			String destination = request.getParameter("destination");
@@ -56,6 +51,7 @@
 			String currentLuggage = request.getParameter("currentLuggage");
 			String maxLuggage = request.getParameter("maxLuggage");
 			String fare = request.getParameter("fare");
+			String allId = request.getParameter("ids");
 		%>
 		<%-- 예약정보들 출력 --%>
 		<div class="mb-3 row">
@@ -121,16 +117,16 @@
 		    </div>
 		</div>
 		
-		<%-- 짐 유무 선택 후 예약하는 기능 --%>
-		<form name="updateRs" action="updateRs.jsp" method = "post">
-			<div class ="mb-3 row">
-				<label class ="col-sm-2">짐 유무</label>
-				<div class ="col-sm-5">
-					<input type = "radio" name= "condition" value = "True"> Yes
-					<input type = "radio" name= "condition" value = "False" checked> No
-				</div>
+		
+		<div class ="mb-3 row">
+			<label class ="col-sm-2">짐 유무</label>
+			<div class ="col-sm-5">
+				 <input type="radio" name="condition" value="True" <%= "True".equals(checkLuggage) ? "checked" : "" %> disabled> Yes
+        <input type="radio" name="condition" value="False" <%= "False".equals(checkLuggage) ? "checked" : "" %> disabled> No
 			</div>
-			
+		</div>
+		<%-- 예약취소하는 버튼 --%>
+		<form name="deleteRs" action="deleteRs.jsp" method = "post">
 			<div class ="mb-3 row">
 				<div class ="col-sm-offset-2 col-sm-10">
 	            		<input type="hidden" name="resId" value="<%=resId%>">
@@ -143,7 +139,7 @@
 						<input type="hidden" name="currentLuggage" value="<%=currentLuggage%>">
 						<input type="hidden" name="maxLuggage" value="<%=maxLuggage%>">
 						<input type="hidden" name="fare" value="<%=fare%>">
-	            		<button type="button" class="btn btn-info" onclick ="updateToRs()">예약하기</button>
+	            		<button type="button" class="btn btn-info" onclick ="deleteToRs()">예약 취소하기</button>
 				</div>
 			</div>
 		</form>

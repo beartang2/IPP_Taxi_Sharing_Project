@@ -7,16 +7,7 @@
 <title>예약 가능 목록</title>
 
 <script type ="text/javascript">
-	function checkDD(){
-	    var form = document.checkDd;
-	    
-	    // 출발지 == 목적지 일경우 경고문 전달
-	    if(form.searchDeparture.value == form.searchDestination.value) {
-	        alert("출발지와 목적지를 다르게 지정 해주세요!");
-	    } else {
-	    	form.submit();
-	    }
-	}
+	
 </script>
 
 </head>
@@ -41,45 +32,7 @@
         </div>
     </div>
     
-    <div><%-- 드롭박스부분 --%> 
-    	<%
-	    	//dropBox로 정한 값들 변수로 저장
-	        String searchDeparture = request.getParameter("searchDeparture");
-	        String searchDestination = request.getParameter("searchDestination");
-	        String searchTime = request.getParameter("searchTime");
-    	%>
-    
-    	<form name="checkDd" method="get">
-    		<label for="searchDeparture">출발지:</label>
-	    	<select name="searchDeparture" id="searchDeparture">
-	    	<%-- 선택후 조회시 사이트를 새로 조회하기 때문에 기본값으로 바뀌어 헷갈리는 문제발생
-	    	     이 문제를 해결하기위해 앞서 정한값을 select로 선택되도록 설정 --%>
-	    		<option value="배재대" <%= "배재대".equals(searchDeparture) ? "selected" : "" %>>배재대</option>
-			    <option value="대전역" <%= "대전역".equals(searchDeparture) ? "selected" : "" %>>대전역</option>
-			    <option value="서대전역" <%= "서대전역".equals(searchDeparture) ? "selected" : "" %>>서대전역</option>
-		    </select>
-		
-		    <label for="searchDestination">목적지:</label>
-		    <select name="searchDestination" id="searchDestination">
-			    <option value="대전역" <%= "대전역".equals(searchDestination) ? "selected" : "" %>>대전역</option>
-			    <option value="배재대" <%= "배재대".equals(searchDestination) ? "selected" : "" %>>배재대</option>
-			    <option value="서대전역" <%= "서대전역".equals(searchDestination) ? "selected" : "" %>>서대전역</option>
-			</select>
-		    
-			<%-- DB구성 확인하고 value값 수정 --%>
-		    <label for="searchTime">시간:</label>
-		    <select name="searchTime" id="searchTime">
-		        <option value="8" <%= "8".equals(searchTime) ? "selected" : "" %>>08:00</option>
-			    <option value="9" <%= "9".equals(searchTime) ? "selected" : "" %>>09:00</option>
-			    <option value="10" <%= "10".equals(searchTime) ? "selected" : "" %>>10:00</option>
-			    <option value="11" <%= "11".equals(searchTime) ? "selected" : "" %>>11:00</option>
-		    </select>
-		    
-			<%-- 조회 클릭시 DB가져오는거 출발지 목적지 시간 비교하고 가져오게 수정 --%>
-		    <button type="button" class="btn btn-primary" onclick = "checkDD()">조회</button>
-	   	</form>
-    </div>
-
+	<%-- 아이디 있는 DB만들고 실제로 테스트ㄱㄱ --%>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -107,21 +60,30 @@
             
 
             try {
-            	
+            	String id= "id";
                 Class.forName("com.mysql.cj.jdbc.Driver"); // DB 드라이버
                 //연결할 DB (url, id, pw)
                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tables_in_taxi_sharing", "root", "0000");
                 //조건을 포함한 쿼리문 작성
-                String sql = "SELECT * FROM reservations WHERE departure = ? AND destination = ? AND hour >= ?";
+                String sql = "SELECT * FROM reservations WHERE id LIKE ? OR id LIKE ?";
             	pstmt = conn.prepareStatement(sql);
-            	pstmt.setString(1, searchDeparture);
-            	pstmt.setString(2, searchDestination);
-            	pstmt.setInt(3, Integer.parseInt(searchTime));
+            	
+            	//%id*% 와 %id%가 포함되있는지 검색
+            	pstmt.setString(1, "%" + id + "*%" );
+            	pstmt.setString(2, "%" + id + "%");
             	
                 rs = pstmt.executeQuery();
-
+                
                 //쿼리문으로 받아온 테이블 출력용 반복문
                 while (rs.next()) {
+                	
+                	//포함되어 있는지 확인(id+*로 뒤에 별은 짐 소유를 의미)
+                	String dbIds = rs.getString("id");
+                    if(dbIds.contains(id + "*")) {
+                        String checkLuggage = "true";
+                    } else {
+                    	String checkLuggage = "false";
+                    }
         %>
         
         
@@ -136,7 +98,7 @@
         	<td><%= rs.getInt("maxLuggage") %></td>
         	<td><%= rs.getInt("fare") %></td>
         	<td>
-        		<form name = "update" action="addRs.jsp" method = "post">
+        		<form name = "check" action="checkRs.jsp" method = "post">
         			<input type="hidden" name="resId" value="<%= rs.getInt("resId") %>">
 					<input type="hidden" name="departure" value="<%= rs.getString("departure") %>">
 					<input type="hidden" name="destination" value="<%= rs.getString("destination") %>">
@@ -147,10 +109,8 @@
 					<input type="hidden" name="currentLuggage" value="<%= rs.getInt("currentLuggage") %>">
 					<input type="hidden" name="maxLuggage" value="<%= rs.getInt("maxLuggage") %>">
 					<input type="hidden" name="fare" value="<%= rs.getInt("fare") %>">
-            		
-        			<button type="submit" class="btn btn-info"
-        			<%= //인원수가 현재==최대 이면 예약못하게
-        			(rs.getInt("currentPeople") == rs.getInt("maxPeople")) ? "disabled" : "" %>>예약하기</button>	
+					<input type="hidden" name="checkLuggage" value="<%= rs.getString("checkLuggage") %>">
+        			<button type="submit" class="btn btn-info">예약 확인</button>	
         		</form>
         	</td>
         </tr>
