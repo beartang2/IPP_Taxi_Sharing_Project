@@ -12,7 +12,6 @@ public class Reservation implements Serializable {
     private Car car;
     private String departure;
     private String destination;
-    private String time;
     private int hour;
     private int people;
     private boolean hasLuggage;
@@ -22,7 +21,7 @@ public class Reservation implements Serializable {
 
     public Reservation(int reservationId, User user, Car car,
                        String departure, String destination,
-                       String time, int hour, int people,
+                       int hour, int people,
                        boolean hasLuggage, String carType,
                        double distance) {
         this.reservationId = reservationId;
@@ -30,7 +29,6 @@ public class Reservation implements Serializable {
         this.car = car;
         this.departure = departure;
         this.destination = destination;
-        this.time = time;
         this.hour = hour;
         this.people = people;
         this.hasLuggage = hasLuggage;
@@ -56,9 +54,6 @@ public class Reservation implements Serializable {
     public String getDestination() { return destination; }
     public void setDestination(String destination) { this.destination = destination; }
 
-    public String getTime() { return time; }
-    public void setTime(String time) { this.time = time; }
-
     public int getHour() { return hour; }
     public void setHour(int hour) { this.hour = hour; }
 
@@ -82,7 +77,6 @@ public class Reservation implements Serializable {
                 ", car=" + car.getCarNumber() +
                 ", departure='" + departure + '\'' +
                 ", destination='" + destination + '\'' +
-                ", time='" + time + '\'' +
                 ", hour=" + hour +
                 ", people=" + people +
                 ", hasLuggage=" + hasLuggage +
@@ -91,5 +85,4 @@ public class Reservation implements Serializable {
                 ", farePerPerson=" + farePerPerson +
                 '}';
     }
-    
 }
