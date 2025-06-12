@@ -10,7 +10,7 @@
             padding: 0;
             background: #faf1a7;
         }
-		div {
+        div {
         	min-height: 100%;
 			position: relative;
         }
@@ -28,13 +28,11 @@
             z-index: 999;
             box-sizing: border-box;
         }
-
         nav .Main {
             font-size: 25px;
             font-weight: bold;
             color: #fbb512;
         }
-
         nav .menu a {
             background-color : #ffffff;
             margin-right: 20px;
@@ -46,63 +44,23 @@
             background-color: #e8e8e7;
             transform: scale(1.05);
         }
-
-        
-        /* 아래 꾸미기 */
-        .banner {
-            margin-top: 70px;
-            height: 60vh;
+        /* 이용 방법 본문 내용 */
+        .pamphlet {
+        	margin-top: 70px;
+            height: 80vh;
             color: black;
-            text-align: center;
-            padding-top: 200px;
+        	padding: 25px;
+        	font-size: 25px;
+        	text-align: center;
         }
-
-        .banner h1 {
-            font-size: 50px;
-        }
-
-        .banner p {
-            font-size: 25px;
-        }
-
-        .cta-button {
-            background-color: #fbb512;
-            color: black;
-            padding: 20px 35px;
-            border-radius: 15px;
-            font-size: 16px;
-            text-decoration: none;
-        }
-        .cta-button:hover {
-            cursor: pointer;
-            background-color: #de9c02;
-            transform: scale(1.05);
-        }
-        
-        .dateInfo {
-        	font-size: 16px;
-        	padding-top: 50px;
-        	color: slategray;
-        }
-        
         footer {
         	bottom: 0px;
 			position: absolute;
         }
     </style>
 </head>
-<%!
-	int pageCnt = 0;
-	void addCount()
-	{
-		pageCnt++;
-	}
-%>
-<%
-	addCount();
-%>
 <body>
-    <nav>
+	<nav>
         <div class="Main">🚕 택시쉐어링</div>
         <div class="menu">
             <a href="./welcome.jsp">홈</a>
@@ -113,17 +71,13 @@
         </div>
     </nav>
 	
-	<div class="dateInfo">
-    	<p>현재 날짜와 시각은 <%=new java.util.Date() %> 입니다.<br>
-        이 사이트 방문은 <%=pageCnt %>번째 입니다.</p>
-    </div>
+	<div class="pamphlet">
+		<h1>이용 방법</h1><br>
+		<p>쉐어 택시 찾기를 누르고<br>
+		출발지, 목적지, 출발 시간을 입력합니다.<br>
+		예약 가능한 목록에서 원하는 차량의 종류와 조건에 맞는 항목을 선택하세요!</p>
+	</div>	
 	
-    <div class="banner">
-        <h1>함께 공유하는 택시</h1>
-        <p>비싼 비용 걱정? No! 함께 타요!</p>
-        <a href="" class="cta-button">쉐어링 시작하기</a>	<!-- 회원가입 페이지로 -->
-    </div>
-
 </body>
 	<footer>
 	Copyright ©JSPBook
