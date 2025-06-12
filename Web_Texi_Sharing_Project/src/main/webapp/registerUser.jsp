@@ -105,7 +105,7 @@ css/bootstrap.min.css" rel="stylesheet">
 			<div class="mb-3 row">
 				<label class="col-sm-2">나이</label>
 				<div class="col-sm-3">
-					<input type="text" name="age" class="form-control">
+					<input type="text" id="age" name="age" class="form-control">
 				</div>
 			</div>
 			<div class="mb-3 row">

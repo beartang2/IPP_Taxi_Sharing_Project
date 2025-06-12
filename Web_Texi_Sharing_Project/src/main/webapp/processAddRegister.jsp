@@ -21,9 +21,9 @@
 	
 	
 	String sql="insert into user (userId, password, name, sex, phone, birth, age) values(?, ?, ?, ?, ?, ?, ?)";
-	//DB에 보낼 쿼리문, 쿼리문에 정해지지 않은 값을 ?로 표시하고 값을 할당하기 위해 아래setXxx()메소드를 사용.
+	//DB에 보낼 쿼리문, 쿼리문에 정해지지 않은 값을 ?로 표시하고 값을 할당하기 위해 아래set()메소드를 사용.
 	
-	PreparedStatement pstmt=null;   //보안 측면에서는 SQL 인젝션 방지를 위해 PreparedStatement 사용.
+	PreparedStatement pstmt=null;   //PreparedStatement 객체 사용.
 	pstmt=conn.prepareStatement(sql);
 	pstmt.setString(1, userId);
 	pstmt.setString(2, password);
@@ -40,3 +40,4 @@
 	
 	response.sendRedirect("loginUser.jsp"); //데이터 삽입 작업이 끝난 후 로그인 화면으로 이동.
 %>
+

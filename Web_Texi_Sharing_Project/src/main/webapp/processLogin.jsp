@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.sql.*" %>
 <%@ include file="dbconn.jsp" %>
 
@@ -13,16 +13,21 @@
     try {
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, userId);
-        pstmt.setString(2, password); // 실제론 비밀번호는 해시화 해야 합니다.
+        pstmt.setString(2, password); 
         rs = pstmt.executeQuery();
         
         if(rs.next()) {
-            // 로그인 성공: 세션에 사용자 정보 저장
+            // 로그인 성공
             session.setAttribute("userId", userId);
-            session.setAttribute("userName", rs.getString("name")); // 예: 이름 저장
-            
-            // 메인 페이지로 이동, 메인 화면 필요 이건 샘플.
-            response.sendRedirect("main.jsp");
+            session.setAttribute("userName", rs.getString("name"));
+
+            if("admin".equals(userId)) {
+                // 관리자면 adminMain.jsp로
+                response.sendRedirect("adminMain.jsp");
+            } else {
+                // 일반 유저는 메인으로
+                response.sendRedirect("main.jsp");
+            }
         } else {
             // 로그인 실패
             out.println("<script>alert('아이디 또는 비밀번호가 잘못되었습니다.'); history.back();</script>");
