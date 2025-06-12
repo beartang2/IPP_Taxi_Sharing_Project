@@ -54,9 +54,10 @@
 	    	<select name="searchDeparture" id="searchDeparture">
 	    	<%-- 선택후 조회시 사이트를 새로 조회하기 때문에 기본값으로 바뀌어 헷갈리는 문제발생
 	    	     이 문제를 해결하기위해 앞서 정한값을 select로 선택되도록 설정 --%>
-	    		<option value="배재대" <%= "배재대".equals(searchDeparture) ? "selected" : "" %>>배재대</option>
+	    		<option value="배재대학교" <%= "배재대학교".equals(searchDeparture) ? "selected" : "" %>>배재대학교</option>
 			    <option value="대전역" <%= "대전역".equals(searchDeparture) ? "selected" : "" %>>대전역</option>
 			    <option value="서대전역" <%= "서대전역".equals(searchDeparture) ? "selected" : "" %>>서대전역</option>
+			    <option value="대전복합터미널" <%= "대전복합터미널".equals(searchDeparture) ? "selected" : "" %>>대전복합터미널</option>
 		    </select>
 		
 		    <label for="searchDestination">목적지:</label>
@@ -64,15 +65,36 @@
 			    <option value="대전역" <%= "대전역".equals(searchDestination) ? "selected" : "" %>>대전역</option>
 			    <option value="배재대" <%= "배재대".equals(searchDestination) ? "selected" : "" %>>배재대</option>
 			    <option value="서대전역" <%= "서대전역".equals(searchDestination) ? "selected" : "" %>>서대전역</option>
-			</select>
+			    <option value="대전복합터미널" <%= "대전복합터미널".equals(searchDeparture) ? "selected" : "" %>>대전복합터미널</option>
+		    </select>
 		    
 			<%-- DB구성 확인하고 value값 수정 --%>
 		    <label for="searchTime">시간:</label>
 		    <select name="searchTime" id="searchTime">
+		        <option value="1" <%= "1".equals(searchTime) ? "selected" : "" %>>01:00</option>
+			<option value="2" <%= "2".equals(searchTime) ? "selected" : "" %>>02:00</option>
+			<option value="3" <%= "3".equals(searchTime) ? "selected" : "" %>>03:00</option>
+			<option value="4" <%= "4".equals(searchTime) ? "selected" : "" %>>04:00</option>
+			<option value="5" <%= "5".equals(searchTime) ? "selected" : "" %>>05:00</option>
+			<option value="6" <%= "6".equals(searchTime) ? "selected" : "" %>>06:00</option>
+			<option value="7" <%= "7".equals(searchTime) ? "selected" : "" %>>07:00</option>
 		        <option value="8" <%= "8".equals(searchTime) ? "selected" : "" %>>08:00</option>
-			    <option value="9" <%= "9".equals(searchTime) ? "selected" : "" %>>09:00</option>
-			    <option value="10" <%= "10".equals(searchTime) ? "selected" : "" %>>10:00</option>
-			    <option value="11" <%= "11".equals(searchTime) ? "selected" : "" %>>11:00</option>
+			<option value="9" <%= "9".equals(searchTime) ? "selected" : "" %>>09:00</option>
+			<option value="10" <%= "10".equals(searchTime) ? "selected" : "" %>>10:00</option>
+			<option value="11" <%= "11".equals(searchTime) ? "selected" : "" %>>11:00</option>
+			<option value="12" <%= "12".equals(searchTime) ? "selected" : "" %>>12:00</option>
+			<option value="13" <%= "13".equals(searchTime) ? "selected" : "" %>>13:00</option>
+			<option value="14" <%= "14".equals(searchTime) ? "selected" : "" %>>14:00</option>
+			<option value="15" <%= "15".equals(searchTime) ? "selected" : "" %>>15:00</option>
+			<option value="16" <%= "16".equals(searchTime) ? "selected" : "" %>>16:00</option>
+			<option value="17" <%= "17".equals(searchTime) ? "selected" : "" %>>17:00</option>
+			<option value="18" <%= "18".equals(searchTime) ? "selected" : "" %>>18:00</option>
+			<option value="19" <%= "19".equals(searchTime) ? "selected" : "" %>>19:00</option>
+			<option value="20" <%= "20".equals(searchTime) ? "selected" : "" %>>20:00</option>
+			<option value="21" <%= "21".equals(searchTime) ? "selected" : "" %>>21:00</option>
+			<option value="22" <%= "19".equals(searchTime) ? "selected" : "" %>>22:00</option>
+			<option value="23" <%= "20".equals(searchTime) ? "selected" : "" %>>23:00</option>
+			<option value="24" <%= "21".equals(searchTime) ? "selected" : "" %>>24:00</option>			
 		    </select>
 		    
 			<%-- 조회 클릭시 DB가져오는거 출발지 목적지 시간 비교하고 가져오게 수정 --%>
