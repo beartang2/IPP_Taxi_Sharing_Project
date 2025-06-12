@@ -10,6 +10,8 @@
 	String allId = request.getParameter("allId");
 	String myId = request.getParameter("myId");
 	
+	
+	
 	//나의 id를 제거한 id를 update할 문장 생성
 	//'&'를 기준으로 분해해서 Array로 저장
 	String[] idArray = allId.split("&");

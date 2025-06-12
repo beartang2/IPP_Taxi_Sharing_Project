@@ -56,6 +56,7 @@
 			String currentLuggage = request.getParameter("currentLuggage");
 			String maxLuggage = request.getParameter("maxLuggage");
 			String fare = request.getParameter("fare");
+			
 		%>
 		<%-- 예약정보들 출력 --%>
 		<div class="mb-3 row">

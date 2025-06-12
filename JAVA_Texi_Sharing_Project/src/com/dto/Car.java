@@ -17,6 +17,8 @@ public abstract class Car {
 		
 	}
 	
+	public abstract void seledCar();
+	
 	
 	//setter getter
 	public String getCarNumber() {
