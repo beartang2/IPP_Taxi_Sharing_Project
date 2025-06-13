@@ -1,31 +1,37 @@
 package com.dto;
 
-public class Car {
+public abstract class Car {
 	
-	private int carNumber;
+	private String carNumber;
 	private int seats;
 	private int capacity;
 	
+	
+	
+	
 	//생성자
-	public Car(int carNumber, int seats, int capacity) {
+	public Car(String carNumber, int seats, int capacity) {
 		this.carNumber=carNumber;
 		this.seats=seats;
 		this.capacity=capacity;
 		
 	}
 	
+	public abstract void seledCar();
+	
 	
 	//setter getter
-	public int getCarNumber() {
+	public String getCarNumber() {
 		return carNumber;
 	}
-	public void setCarNumber(int carNumber) {
+	public void setCarNumber(String carNumber) {
 		this.carNumber = carNumber;
 	}
 	
 	public int getSeats() {
 		return seats;
 	}
+	
 	public void setSeats(int seats) {
 		this.seats = seats;
 	}
