@@ -5,7 +5,7 @@ public class TheLowerCar extends Car {
     private boolean UpperSpace;
 
     // 생성자
-    public TheLowerCar(int carNumber, int seats, int capacity, boolean UpperSpace) {
+    public TheLowerCar(String carNumber, int seats, int capacity, boolean UpperSpace) {
         super(carNumber, seats, capacity);
         this.UpperSpace = UpperSpace;
     }

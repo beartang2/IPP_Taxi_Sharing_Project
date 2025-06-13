@@ -1,6 +1,6 @@
 package com.dto;
 
-public abstract class Car {
+public class Car {
 	
 	private String carNumber;
 	private int seats;
@@ -17,7 +17,7 @@ public abstract class Car {
 		
 	}
 	
-	public abstract void seledCar();
+	//public abstract void seledCar();
 	
 	
 	//setter getter
