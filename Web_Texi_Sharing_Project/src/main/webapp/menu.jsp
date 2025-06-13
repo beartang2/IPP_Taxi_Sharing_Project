@@ -1,11 +1,66 @@
-<header class="pb-3 mb-4 border-bottome">
-		<a href="./welcome.jsp" class="d-flex align-items-center text-dark"
-		text-decoration-none">
-		<svg  width="32" height="32" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-  		<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
-  		<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>택시 예약 시스템</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .menu-button {
+            width: 250px;
+            padding: 20px;
+            margin: 15px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 12px;
+            background-color: #4CAF50;
+            color: white;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        .menu-button:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        .logout-button {
+            background-color: #e74c3c;
+        }
+        .logout-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
 
-		</svg> 
-		<span class="fs-4">HOME</span>
-		</a>
-</header>
+    <h1>택시 예약 시스템</h1>
+
+    <form action="reservation.jsp">
+        <button class="menu-button" type="submit">🚕 예약하기</button>
+    </form>
+
+    <form action="confirmation.jsp">
+        <button class="menu-button" type="submit">📄 예약 확인</button>
+    </form>
+
+    <form action="login.jsp">
+        <button class="menu-button logout-button" type="submit">🔑 로그아웃</button>
+    </form>
+
+</body>
+</html>
