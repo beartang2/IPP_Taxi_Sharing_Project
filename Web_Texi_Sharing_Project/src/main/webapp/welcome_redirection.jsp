@@ -137,7 +137,7 @@
         <p>비싼 비용 걱정? No! 함께 타요!</p>
         <h2>환영합니다, <%= session.getAttribute("userName") %>님!</h2><br>
         <a href="./menu.jsp" class="cta-button">쉐어링 시작하기</a><br><br><br><br>
-        <a href="./welcome.jsp" class="lgo-button">로그아웃</a>	<!-- 종료 후 시작 페이지로 -->
+		<a href="./logout.jsp" class="lgo-button">로그아웃</a>    <!-- 종료 후 시작 페이지로 -->
     </div>
 	<jsp:include page="./footer.jsp"/>
 </body>

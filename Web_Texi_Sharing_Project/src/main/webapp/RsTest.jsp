@@ -1,9 +1,19 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 <style>
+	html, body {
+		font-family: Arial, sans-serif;
+       	margin: auto;
+       	padding: auto;
+       	background: #faf1a7;
+   	}
+	div {
+   		min-height: 100%;
+		position: relative;
+	}
 /* 네비게이션 바 */
 	nav {
 	    background-color: #ffffff;
@@ -35,9 +45,30 @@
 	    background-color: #e8e8e7;
 	    transform: scale(1.05);
 	}
+	/* 아래 꾸미기 */
+    .banner {
+        margin-top: 20px;
+        height: auto;
+        color: black;
+        padding: 80px;
+        background: #faf1a7;
+    }
+    .cta-button {
+        background-color: #fbb512;
+        color: black;
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    .cta-button:hover {
+        cursor: pointer;
+        background-color: #de9c02;
+        transform: scale(1.05);
+    }
+    
 </style>
 <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<meta charset="UTF-8">
 <title>쉐어 택시 찾기</title>
 
 <script type ="text/javascript">
@@ -54,12 +85,12 @@
 </script>
 
 </head>
-<%-- <%
+<%
     if (session.getAttribute("userId") == null) {
         response.sendRedirect("welcome.jsp?msg=not_logged_in");
         return;
     }
-%> --%>
+%>
 <body>
 	<nav>
         <div class="Main">🚕 택시쉐어링</div>
@@ -72,14 +103,9 @@
         </div>
     </nav>
 
-<div class="container py-4">
-	<header class="pb-3 mb-4 border-bottom">
-	<a href="./welcome.jsp" class="d-flex align-items-center text-darktext-decoration-none">
-	<span class="fs-4">🚖 홈</span>
-	</a>
-	</header>
-	
-	<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+<div class="banner">
+<div class="container py-4">	
+	<div>
         <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">예약 목록</h1>
         </div>
@@ -142,12 +168,12 @@
 		    </select>
 		    
 			<%-- 조회 클릭시 DB가져오는거 출발지 목적지 시간 비교하고 가져오게 수정 --%>
-		    <button type="button" class="btn btn-primary" onclick = "checkDD()">조회</button>
+		    <button type="button" class="cta-button" onclick = "checkDD()">조회</button>
 	   	</form>
     </div>
 
     <table class="table table-striped">
-        <thead>
+        <thead style="background: #faf1a7;">
         <tr>
         	<%--속성값 이름 튜플--%>
             <th>출발지</th>
@@ -162,23 +188,21 @@
             <th>
         </tr>
         </thead>
-        <tbody>
+        <tbody style="background: #faf1a7;">
         <%
         	//DB 연결문
         	//조회 부분 확인해서 수정 + 실제 DB에 대응되게 DB샘플 만들고 수정 및 테스트
             Connection conn = null;
             PreparedStatement pstmt = null;
             ResultSet rs = null;
-            
-            
 
             try {
-            	
+
                 Class.forName("com.mysql.cj.jdbc.Driver"); // DB 드라이버
                 //연결할 DB (url, id, pw)
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tables_in_taxi_sharing", "root", "0000");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taxi_sharing", "root", "1234");
                 //조건을 포함한 쿼리문 작성
-                String sql = "SELECT * FROM reservations WHERE departure = ? AND destination = ? AND hour >= ?";
+                String sql = "SELECT * FROM reservation WHERE departure = ? AND destination = ? AND hour >= ?";
             	pstmt = conn.prepareStatement(sql);
             	pstmt.setString(1, searchDeparture);
             	pstmt.setString(2, searchDestination);
@@ -214,7 +238,7 @@
 					<input type="hidden" name="maxLuggage" value="<%= rs.getInt("maxLuggage") %>">
 					<input type="hidden" name="fare" value="<%= rs.getInt("fare") %>">
             		
-        			<button type="submit" class="btn btn-info"
+        			<button type="submit" class="cta-button"
         			<%= //인원수가 현재==최대 이면 예약못하게
         			(rs.getInt("currentPeople") == rs.getInt("maxPeople")) ? "disabled" : "" %>>예약하기</button>	
         		</form>
@@ -235,8 +259,8 @@
         %>
         </tbody>
     </table>
-	
-	<jsp:include page="./footer.jsp"/>
 </div>
+</div>
+	<jsp:include page="./footer.jsp"/>
 </body>
 </html>

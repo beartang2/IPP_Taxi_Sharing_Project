@@ -6,10 +6,63 @@
     <title>예약 확인</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
+			font-family: Arial, sans-serif;
+	       	margin: 0;
+	       	padding: 0;
+	       	background: #faf1a7;
+	       	height: auto;
+	   	}
+		div {
+	   		min-height: 100%;
+			position: relative;
+		}
+	       
+	    /* 네비게이션 바 */
+	    nav {
+	        background-color: #ffffff;
+	        padding: 15px 30px;
+	        display: flex;
+	        justify-content: space-between;
+	        align-items: center;
+	        width: 100%;
+	        top: 0;
+	        z-index: 999;
+	        box-sizing: border-box;
+	    }
+	
+	    nav .Main {
+	        font-size: 25px;
+	        font-weight: bold;
+	        color: #fbb512;
+	    }
+	
+	    nav .menu a {
+	        background-color : #ffffff;
+	        margin-right: 20px;
+	        text-decoration: none;
+	        color: black;
+	        white-space: nowrap; /*줄바꿈 금지 */
+	    }
+	    nav .menu a:hover {
+	        background-color: #e8e8e7;
+	        transform: scale(1.05);
+	    }
+	    /* 아래 꾸미기 */
+	    .banner {
+	        margin-top: 50px;
+	        height: auto;
+	        color: black;
+	        text-align: center;
+	        padding-top: 100px;
+	    }
+	
+	    .banner h1 {
+	        font-size: 50px;
+	    }
+	
+	    .banner p {
+	        font-size: 25px;
+	    }
         .info-box {
             width: 400px;
             padding: 15px;
@@ -51,17 +104,20 @@
         </div>
     </nav>
     
-    <h1>📄 예약 확인</h1>
+	<div class="banner">
+	    <h1>📄 예약 확인</h1>
+	    <div class="info-box">
+	        <p><strong>이름:</strong> <%= session.getAttribute("userName")%></p>
+	        <p><strong>전화번호:</strong> <%= session.getAttribute("phone")%></p>
+	        <p><strong>출발지:</strong><%= session.getAttribute("departure")%></p>
+	        <p><strong>목적지:</strong> <%= session.getAttribute("destination")%></p>
+	        <p><strong>출발 시간:</strong> <%= session.getAttribute("hour")%>:00</p>
+	        <p><strong>인당 금액:</strong> <%= session.getAttribute("perPerson")%></p>
+	    </div>
+	    
+    	<button class="back-button" onclick="history.back();">돌아가기</button>
+	</div>
 
-    <div class="info-box">
-        <p><strong>이름:</strong> ${param.name}</p>
-        <p><strong>전화번호:</strong> ${param.phone}</p>
-        <p><strong>출발지:</strong> ${param.pickup_location}</p>
-        <p><strong>목적지:</strong> ${param.destination}</p>
-        <p><strong>출발 시간:</strong> ${param.pickup_time}</p>
-    </div>
-
-    <button class="back-button" onclick="history.back();">🔙 돌아가기</button>
 
 </body>
 </html>

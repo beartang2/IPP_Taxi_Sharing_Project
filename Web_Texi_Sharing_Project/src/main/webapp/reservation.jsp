@@ -51,19 +51,6 @@
             <a href="./loginUser.jsp">로그인</a>		<!-- 로그인 페이지로 -->
         </div>
     </nav>
-    
-    <h1>🚖 택시 예약하기</h1>
-    
-    <form action="reservation_process.jsp" method="post">
-        <input type="text" name="name" placeholder="이름" class="input-box" required><br>
-        <input type="text" name="phone" placeholder="전화번호" class="input-box" required><br>
-        <input type="text" name="pickup_location" placeholder="출발지" class="input-box" required><br>
-        <input type="text" name="destination" placeholder="목적지" class="input-box" required><br>
-        <input type="datetime-local" name="pickup_time" class="input-box" required><br>
-        <button type="submit" class="submit-button">🚕 예약 요청</button>
-    </form>
-
-    <button class="back-button" onclick="history.back();">🔙 돌아가기</button>
 
 </body>
 </html>

@@ -10,9 +10,12 @@
     String departure = request.getParameter("departure");
 	String destination = request.getParameter("destination");
 	String hour = request.getParameter("hour");
-	
+	Integer fare = Integer.parseInt(request.getParameter("fare"));
 	String condition = request.getParameter("condition");
-	
+    Integer currentPeople = Integer.parseInt(request.getParameter("currentPeople"));
+
+    Integer perPerson = fare/(currentPeople+1);
+    
     //초기화
     String sql = "";
     Connection conn = null;
@@ -20,15 +23,15 @@
 
     try {
     	
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tables_in_taxi_sharing", "root", "0000");
-		if(condition.equals("True")){
-			sql = "UPDATE reservations SET currentPeople = currentPeople+1, currentLuggage = currentLuggage+1 WHERE resId = ?";
+    	Class.forName("com.mysql.cj.jdbc.Driver");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taxi_sharing", "root", "0000");
+        if(condition.equals("True")){
+            sql = "UPDATE reservation SET currentPeople = currentPeople+1, currentLuggage = currentLuggage+1 WHERE resId = ?";
+        }
+        else {
+            sql = "UPDATE reservation SET currentPeople = currentPeople+1 WHERE resId = ?";
 		}
-		else {
-			sql = "UPDATE reservations SET currentPeople = currentPeople+1 WHERE resId = ?";
-			
-		}
+        
         pstmt = conn.prepareStatement(sql);
 		
         pstmt.setInt(1, resId);

@@ -63,11 +63,11 @@
 	<nav>
         <div class="Main">🚕 택시쉐어링</div>
         <div class="menu">
-            <a href="./welcome.jsp">홈</a>
-            <a href="">쉐어 택시 찾기</a>	<!-- 예약 페이지로 -->
+            <a href="./welcome_redirection.jsp">홈</a>
+            <a href="./menu.jsp">쉐어 택시 찾기</a>	<!-- 예약 페이지로 -->
             <a href="./pamphlet.jsp">이용 방법</a>
-            <a href="">마이페이지</a>	<!-- 예약 확인 페이지로 -->
-            <a href="">로그인</a>		<!-- 로그인 페이지로 -->
+            <a href="./confirmation.jsp">마이페이지</a>	<!-- 예약 확인 페이지로 -->
+            <a href="./loginUser.jsp">로그인</a>		<!-- 로그인 페이지로 -->
         </div>
     </nav>
 	

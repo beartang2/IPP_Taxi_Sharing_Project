@@ -6,14 +6,18 @@
 <title>택시 예약 시스템</title>
 <style>
 	body {
-	    background-color: #f8f9fa;
+       	background: #faf1a7;
 	    font-family: 'Arial', sans-serif;
 	    display: flex;
 	    flex-direction: column;
-	    align-items: center;
 	    justify-content: center;
 	    height: 100vh;
 	    margin: 0;
+	    align-items: center;
+	}
+	div {
+   		min-height: 100%;
+		position: relative;	
 	}
 	h1 {
 	    font-size: 2.5rem;
@@ -89,6 +93,7 @@
         </div>
     </nav>
     
+
     <h1>택시 예약 시스템</h1>
 
     <form action="./RsTest.jsp">
@@ -102,6 +107,7 @@
     <form action="./welcome.jsp">
         <button class="menu-button logout-button" type="submit">❗ 종료</button>
     </form>
+
 	<jsp:include page="./footer.jsp"/>
 </body>
 </html>

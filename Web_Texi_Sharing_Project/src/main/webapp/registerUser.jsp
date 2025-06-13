@@ -3,6 +3,15 @@
 <html>
 <head>
 <style>
+	html, body {
+		font-family: Arial, sans-serif;
+       	margin: auto;
+       	padding: auto;
+       	background: #faf1a7;
+   	}
+	div {
+		position: relative;	
+	}
 /* 네비게이션 바 */
 	nav {
 	    background-color: #ffffff;
@@ -34,6 +43,27 @@
 	    background-color: #e8e8e7;
 	    transform: scale(1.05);
 	}
+	/* 아래 꾸미기 */
+    .banner {
+        margin-top: 20px;
+        height: auto;
+        color: black;
+        padding: 80px;
+        background: #faf1a7;
+    }
+    .cta-button {
+        background-color: #fbb512;
+        color: black;
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    .cta-button:hover {
+        cursor: pointer;
+        background-color: #de9c02;
+        transform: scale(1.05);
+    }
 </style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/
 css/bootstrap.min.css" rel="stylesheet">
@@ -52,9 +82,10 @@ css/bootstrap.min.css" rel="stylesheet">
         </div>
     </nav>
 	
+	<div class="banner">
 	<div class="container py-4">
 		
-		<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+		<div>
 			<div class="container-fluid py-5">
 			<h1 class="display-5 fw-bold">회원 가입</h1>
 			<p class="col-md-8 fs-4">User Register</p>
@@ -154,12 +185,13 @@ css/bootstrap.min.css" rel="stylesheet">
 			</div>
 			<div class="mb-3 row">
 				<div class="col-sm-offset-2 col-sm-10">
-					<input type="button" class="btn btn-primary" value="등록" onClick="CheckAddUser()">
+					<input type="button" class="cta-button" value="등록" onClick="CheckAddUser()">
 				</div>
 			</div>
 		</form>	
 		</div>
-		<jsp:include page="./footer.jsp"/>
 	</div>
+</div>
+	<jsp:include page="./footer.jsp"/>
 </body>
 </html>

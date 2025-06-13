@@ -1,6 +1,6 @@
 package com.dto;
 
-public class Car {
+public abstract class Car {
 	
 	private String carNumber;
 	private int seats;
