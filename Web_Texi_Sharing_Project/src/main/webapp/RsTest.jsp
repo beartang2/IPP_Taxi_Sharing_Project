@@ -1,10 +1,44 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.sql.*" %>
+<!DOCTYPE html>
 <html>
 <head>
+<style>
+/* 네비게이션 바 */
+	nav {
+	    background-color: #ffffff;
+	    padding: 15px 30px;
+	    display: flex;
+	    justify-content: space-between;
+	    align-items: center;
+	    position: fixed;
+	    width: 100%;
+	    top: 0;
+	    z-index: 999;
+	    box-sizing: border-box;
+	}
+	
+	nav .Main {
+	    font-size: 25px;
+	    font-weight: bold;
+	    color: #fbb512;
+	}
+	
+	nav .menu a {
+	    background-color : #ffffff;
+	    margin-right: 20px;
+	    text-decoration: none;
+	    color: black;
+	    white-space: nowrap; /*줄바꿈 금지 */
+	}
+	nav .menu a:hover {
+	    background-color: #e8e8e7;
+	    transform: scale(1.05);
+	}
+</style>
 <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <meta charset="UTF-8">
-<title>예약 가능 목록</title>
+<title>쉐어 택시 찾기</title>
 
 <script type ="text/javascript">
 	function checkDD(){
@@ -20,18 +54,28 @@
 </script>
 
 </head>
+<%-- <%
+    if (session.getAttribute("userId") == null) {
+        response.sendRedirect("welcome.jsp?msg=not_logged_in");
+        return;
+    }
+%> --%>
 <body>
+	<nav>
+        <div class="Main">🚕 택시쉐어링</div>
+        <div class="menu">
+            <a href="./welcome_redirection.jsp">홈</a>
+            <a href="./menu.jsp">쉐어 택시 찾기</a>	<!-- 예약 페이지로 -->
+            <a href="./pamphlet.jsp">이용 방법</a>
+            <a href="./confirmation.jsp">마이페이지</a>	<!-- 예약 확인 페이지로 -->
+            <a href="./loginUser.jsp">로그인</a>		<!-- 로그인 페이지로 -->
+        </div>
+    </nav>
+
 <div class="container py-4">
 	<header class="pb-3 mb-4 border-bottom">
 	<a href="./welcome.jsp" class="d-flex align-items-center text-darktext-decoration-none">
-	<svg width="32" height="32" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-	<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8
-	2.207l6 .646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-
-	1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
-	<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2
-	13 .5V9.29316-6Z"/>
-	</svg>
-	<span class="fs-4">Home</span>
+	<span class="fs-4">🚖 홈</span>
 	</a>
 	</header>
 	
@@ -192,9 +236,7 @@
         </tbody>
     </table>
 	
-	<footer class = "pt-3 mt-4 text-body-secondatry border-top">
-	 &copy; Texi_Sharing
-</footer>
+	<jsp:include page="./footer.jsp"/>
 </div>
 </body>
 </html>

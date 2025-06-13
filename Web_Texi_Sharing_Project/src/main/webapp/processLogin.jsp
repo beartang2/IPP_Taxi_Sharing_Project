@@ -26,7 +26,7 @@
                 response.sendRedirect("adminMain.jsp");
             } else {
                 // 일반 유저는 메인으로
-                response.sendRedirect("main.jsp");
+                response.sendRedirect("welcome_redirection.jsp");
             }
         } else {
             // 로그인 실패

@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>택시 예약하기</title>
     <style>
         body {
@@ -41,7 +41,17 @@
     </style>
 </head>
 <body>
-
+	<nav>
+        <div class="Main">🚕 택시쉐어링</div>
+        <div class="menu">
+            <a href="./welcome_redirection.jsp">홈</a>
+            <a href="./menu.jsp">쉐어 택시 찾기</a>	<!-- 예약 페이지로 -->
+            <a href="./pamphlet.jsp">이용 방법</a>
+            <a href="./confirmation.jsp">마이페이지</a>	<!-- 예약 확인 페이지로 -->
+            <a href="./loginUser.jsp">로그인</a>		<!-- 로그인 페이지로 -->
+        </div>
+    </nav>
+    
     <h1>🚖 택시 예약하기</h1>
     
     <form action="reservation_process.jsp" method="post">

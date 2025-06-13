@@ -41,7 +41,7 @@
             session.setAttribute("destination", destination);
             session.setAttribute("hour", hour);
             // 업데이트 성공, 이후 표시하는 페이지 jsp
-            response.sendRedirect("main.jsp");
+            response.sendRedirect("welcome_redirection.jsp");
         } else {
             out.println("업데이트 실패: 해당 ID가 존재하지 않습니다.");
         }

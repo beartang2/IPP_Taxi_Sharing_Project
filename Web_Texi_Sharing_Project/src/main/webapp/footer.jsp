@@ -1,3 +1,9 @@
-<footer class="pt-3 mt-4 text-body-secondary border-top">
-		&copy; TaxiSharing
+<style>
+	footer {
+   		bottom: 0px;
+		position: absolute;
+    }
+</style>
+<footer>
+	&copy; TaxiSharing
 </footer>
