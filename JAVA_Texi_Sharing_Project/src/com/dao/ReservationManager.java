@@ -12,12 +12,12 @@ public class ReservationManager {
 
     // 예약 생성
     public Reservation createReservation(User user, Car car, String departure,
-                                         String destination, String time, int hour,
+                                         String destination, int hour,
                                          int people, boolean hasLuggage, String carType,
                                          double distance) {
         Reservation reservation = new Reservation(
                 reservationSeq++, user, car, departure, destination,
-                time, hour, people, hasLuggage, carType, distance
+                hour, people, hasLuggage, carType, distance
         );
         reservations.add(reservation);
         return reservation;

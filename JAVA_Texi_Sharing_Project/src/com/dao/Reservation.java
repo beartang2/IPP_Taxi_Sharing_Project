@@ -34,9 +34,9 @@ public class Reservation implements Serializable {
         this.hasLuggage = hasLuggage;
         this.carType = carType;
 
-        boolean isNight = FareCalc.isNightTime(hour);
-        this.totalFare = FareCalc.calcTotalFare(distance, isNight);
-        this.farePerPerson = FareCalc.calcPerPersonFare(distance, people, isNight);
+        //boolean isNight = FareCalc.isNightTime(hour);
+        //this.totalFare = FareCalc.calcTotalFare(distance, isNight);
+        this.farePerPerson = FareCalc.calcPerPersonFare(distance, hour, people);
     }
 
     public int getReservationId() { return reservationId; }
