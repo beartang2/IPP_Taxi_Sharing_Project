@@ -7,7 +7,6 @@
 	html, body {
 		font-family: Arial, sans-serif;
        	margin: auto;
-       	padding: auto;
        	background: #faf1a7;
    	}
 	div {
@@ -124,7 +123,7 @@
 	    	<select name="searchDeparture" id="searchDeparture">
 	    	<%-- 선택후 조회시 사이트를 새로 조회하기 때문에 기본값으로 바뀌어 헷갈리는 문제발생
 	    	     이 문제를 해결하기위해 앞서 정한값을 select로 선택되도록 설정 --%>
-	    		<option value="배재대학교" <%= "배재대학교".equals(searchDeparture) ? "selected" : "" %>>배재대학교</option>
+	    		<option value="배재대" <%= "배재대".equals(searchDeparture) ? "selected" : "" %>>배재대학교</option>
 			    <option value="대전역" <%= "대전역".equals(searchDeparture) ? "selected" : "" %>>대전역</option>
 			    <option value="서대전역" <%= "서대전역".equals(searchDeparture) ? "selected" : "" %>>서대전역</option>
 			    <option value="대전복합터미널" <%= "대전복합터미널".equals(searchDeparture) ? "selected" : "" %>>대전복합터미널</option>
@@ -133,7 +132,7 @@
 		    <label for="searchDestination">목적지:</label>
 		    <select name="searchDestination" id="searchDestination">
 			    <option value="대전역" <%= "대전역".equals(searchDestination) ? "selected" : "" %>>대전역</option>
-			    <option value="배재대" <%= "배재대".equals(searchDestination) ? "selected" : "" %>>배재대</option>
+			    <option value="배재대" <%= "배재대".equals(searchDestination) ? "selected" : "" %>>배재대학교</option>
 			    <option value="서대전역" <%= "서대전역".equals(searchDestination) ? "selected" : "" %>>서대전역</option>
 			    <option value="대전복합터미널" <%= "대전복합터미널".equals(searchDeparture) ? "selected" : "" %>>대전복합터미널</option>
 		    </select>

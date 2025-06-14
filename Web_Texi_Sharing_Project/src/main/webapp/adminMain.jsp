@@ -3,10 +3,9 @@
 <html>
 <head>
 <style>
-body {
+	body {
 		font-family: Arial, sans-serif;
-       	margin-top: 20px;
-       	padding-tip: 60px;
+       	margin: 70px 0px 0px 0px;
        	background: #faf1a7;
    	}
 	div {

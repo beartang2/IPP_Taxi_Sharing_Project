@@ -1,8 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.sql.*" %>
 <%@ include file="dbconn.jsp"  %> <%--dbconn.jsp데이터 연동(DB연동) --%>
 <%
-	request.setCharacterEncoding("UTF-8"); //
+	request.setCharacterEncoding("utf-8"); //
 	
 	String userId=request.getParameter("userId");
 	String password=request.getParameter("password");

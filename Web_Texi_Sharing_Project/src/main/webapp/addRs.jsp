@@ -3,6 +3,15 @@
 <html>
 <head>
 <style>
+	html, body {
+		font-family: Arial, sans-serif;
+       	margin: auto;
+       	padding: auto;
+       	background: #faf1a7;
+   	}
+	div {
+		position: relative;	
+	}
 /* 네비게이션 바 */
 	nav {
 	    background-color: #ffffff;
@@ -34,6 +43,27 @@
 	    background-color: #e8e8e7;
 	    transform: scale(1.05);
 	}
+	/* 아래 꾸미기 */
+    .banner {
+        margin-top: 20px;
+        height: auto;
+        color: black;
+        padding: 80px;
+        background: #faf1a7;
+    }
+    .cta-button {
+        background-color: #fbb512;
+        color: black;
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    .cta-button:hover {
+        cursor: pointer;
+        background-color: #de9c02;
+        transform: scale(1.05);
+    }
 </style>
 <link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <meta charset="utf-8">
@@ -67,27 +97,10 @@
         </div>
     </nav>
 
+<div class="banner">
 <div class="container py-4">
-	<header class="pb-3 mb-4 border-bottom">
-		<a href="./welcome.jsp" class="d-flex align-items-center text-dark
-		text-decoration-none">
-			<svg width="32" height="32" fill="currentColor" class="bi bi-house
-			-fill" viewBox="0 0 16 16">
-			<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8
-			2.207l6 .646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
-			<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 213 .5V9.29316-6Z"/>
-			</svg>
-			<span class="fs-4">Home</span>
-		</a>
-	</header>
-	
-	<div class = "p-5 mb-4 bg-body-tertiary rounded-3">
-		<div class="container-fluid py-5">
-			<h1 class = "display-5 fw-bold">예약 최종 확인</h1>
-		</div>
-	</div>
-	
-	
+	<h1 class = "display-5 fw-bold" style="margin-bottom: 50px;">예약 최종 확인</h1>
+
 	
 	<div class = "row align-items-md-stretch">
 		<% //파라매터들 가져와서 변수로 저장 (보여주기용이니까 타입변환은 굳이)
@@ -189,12 +202,13 @@
 						<input type="hidden" name="currentLuggage" value="<%=currentLuggage%>">
 						<input type="hidden" name="maxLuggage" value="<%=maxLuggage%>">
 						<input type="hidden" name="fare" value="<%=fare%>">
-	            		<button type="button" class="btn btn-info" onclick ="updateToRs()">예약하기</button>
+	            		<button type="button" class="cta-button" onclick ="updateToRs()">예약하기</button>
 				</div>
 			</div>
 		</form>
 	</div>
-	<jsp:include page="./footer.jsp"/>
 </div>
+</div>
+	<jsp:include page="./footer.jsp"/>
 </body>
 </html>

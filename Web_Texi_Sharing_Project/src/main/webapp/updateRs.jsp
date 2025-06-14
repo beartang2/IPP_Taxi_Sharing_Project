@@ -24,7 +24,7 @@
     try {
     	
     	Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taxi_sharing", "root", "0000");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taxi_sharing", "root", "1234");
         if(condition.equals("True")){
             sql = "UPDATE reservation SET currentPeople = currentPeople+1, currentLuggage = currentLuggage+1 WHERE resId = ?";
         }
@@ -43,6 +43,7 @@
         	session.setAttribute("departure", departure);
             session.setAttribute("destination", destination);
             session.setAttribute("hour", hour);
+            session.setAttribute("perPerson", perPerson);
             // 업데이트 성공, 이후 표시하는 페이지 jsp
             response.sendRedirect("welcome_redirection.jsp");
         } else {

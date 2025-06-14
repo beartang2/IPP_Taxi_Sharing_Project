@@ -20,6 +20,7 @@
             // 로그인 성공
             session.setAttribute("userId", userId);
             session.setAttribute("userName", rs.getString("name"));
+            session.setAttribute("phone",rs.getString("phone"));
 
             if("admin".equals(userId)) {
                 // 관리자면 adminMain.jsp로
