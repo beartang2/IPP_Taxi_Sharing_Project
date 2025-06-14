@@ -185,8 +185,8 @@
 			<div class ="mb-3 row">
 				<label class ="col-sm-2">짐 유무</label>
 				<div class ="col-sm-5">
-					<input type = "radio" name= "condition" value = "True"> Yes
-					<input type = "radio" name= "condition" value = "False" checked> No
+					<input type = "radio" name= "hasLuggage" value = "True"> Yes
+					<input type = "radio" name= "hasLuggage" value = "False" checked> No
 				</div>
 			</div>
 			

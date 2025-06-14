@@ -6,7 +6,6 @@
 	html, body {
 		font-family: Arial, sans-serif;
        	margin: auto;
-       	padding: auto;
        	background: #faf1a7;
    	}
 	div {

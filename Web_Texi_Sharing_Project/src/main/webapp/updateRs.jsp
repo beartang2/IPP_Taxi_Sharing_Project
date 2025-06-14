@@ -11,7 +11,7 @@
 	String destination = request.getParameter("destination");
 	String hour = request.getParameter("hour");
 	Integer fare = Integer.parseInt(request.getParameter("fare"));
-	String condition = request.getParameter("condition");
+	String hasLuggage = request.getParameter("hasLuggage");
     Integer currentPeople = Integer.parseInt(request.getParameter("currentPeople"));
 
     Integer perPerson = fare/(currentPeople+1);
@@ -25,7 +25,7 @@
     	
     	Class.forName("com.mysql.cj.jdbc.Driver");
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taxi_sharing", "root", "1234");
-        if(condition.equals("True")){
+        if(hasLuggage.equals("True")){
             sql = "UPDATE reservation SET currentPeople = currentPeople+1, currentLuggage = currentLuggage+1 WHERE resId = ?";
         }
         else {
