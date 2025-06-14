@@ -6,9 +6,7 @@ public abstract class Car {
 	private int seats;
 	private int capacity;
 	
-	
-	
-	
+
 	//생성자
 	public Car(String carNumber, int seats, int capacity) {
 		this.carNumber=carNumber;

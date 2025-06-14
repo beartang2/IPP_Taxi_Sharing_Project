@@ -112,6 +112,8 @@
 	        <p><strong>출발지:</strong><%= session.getAttribute("departure")%></p>
 	        <p><strong>목적지:</strong> <%= session.getAttribute("destination")%></p>
 	        <p><strong>출발 시간:</strong> <%= session.getAttribute("hour")%>:00</p>
+	        <!-- 단톡에 세션 key 이름을 동일해야해서 정보를 저장하고 출력할 Key 이름을 s_~~~ 이런 이름으로 하기로 했던 것 같았는데 혹시 몰라서   
+         	processLogin.jsp 그리고 updateRs.jsp 찾아가서 확인했을때 원래 사용했던 이름이여서 우선 동일한 Key 이름으로 맞췄습니답 -->
 	        <p><strong>인당 금액:</strong> <%= session.getAttribute("perPerson")%></p>
 	    </div>
 	    
