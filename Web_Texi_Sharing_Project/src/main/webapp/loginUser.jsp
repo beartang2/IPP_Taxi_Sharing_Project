@@ -70,6 +70,13 @@ css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="./resources/js/validation.js"></script>
 <title>로그인</title>
 </head>
+<!-- 로그인이 되어있습니다 알림창 띄우기 -->
+<%
+    if (session.getAttribute("userId") != null) {
+        response.sendRedirect("welcome_redirection.jsp?msg=already_logged_in");
+        return;
+    }
+%>
 <body>
 	<nav>
         <div class="Main">🚕 택시쉐어링</div>
@@ -107,7 +114,7 @@ css/bootstrap.min.css" rel="stylesheet">
 			</div>
 			<div class="mb-3 row">
 				<div class="col-sm-offset-2 col-sm-10">
-					<input type="submit" class="btn btn-primary" value="로그인">
+					<input type="submit" class="cta-button" value="로그인">
 				</div>
 			</div>
 		</form>	

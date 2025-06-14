@@ -104,7 +104,7 @@
         <button class="menu-button" type="submit">📄 예약 확인</button>
     </form>
 
-    <form action="./welcome.jsp">
+    <form action="logout.jsp">
         <button class="menu-button logout-button" type="submit">❗ 종료</button>
     </form>
 

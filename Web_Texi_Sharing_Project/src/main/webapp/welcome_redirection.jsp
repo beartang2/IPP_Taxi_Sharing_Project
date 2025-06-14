@@ -105,6 +105,17 @@
     }
 %>
 
+<%
+	String msg = request.getParameter("msg");
+    if("already_logged_in".equals(msg)){
+%>
+<script>
+    alert("이미 로그인 되어있습니다.");
+</script>
+<%
+    }
+%>
+
 <%!
 	int pageCnt = 0;
 	void addCount()

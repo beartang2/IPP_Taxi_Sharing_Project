@@ -70,6 +70,13 @@ css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="./resources/js/validation.js"></script>
 <title>회원 가입</title>
 </head>
+<!-- 로그인이 되어있습니다 알림창 띄우기 -->
+<%
+    if (session.getAttribute("userId") != null) {
+        response.sendRedirect("welcome_redirection.jsp?msg=already_logged_in");
+        return;
+    }
+%>
 <body>
 	<nav>
         <div class="Main">🚕 택시쉐어링</div>
